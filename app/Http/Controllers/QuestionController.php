@@ -19,7 +19,7 @@ class QuestionController extends Controller
         $topics = Topic::where('path', 'LIKE', "%{$keyword}%")->pluck('id');
 
         if ($topics->isEmpty()) {
-            return response()->json(['message' => 'No matching topics found'], 404);
+            return response()->json(['message' => 'No matching topics found.'], 404);
         }
 
         $questions = Question::with('topic')
